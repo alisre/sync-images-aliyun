@@ -28,6 +28,7 @@ jobs:
         #!/usr/bin/env bash
         IMG=( registry.opensource.zalan.do/acid/postgres-operator:v1.10.1 ghcr.io/zalando/spilo-15:3.0-p1 registry.opensource.zalan.do/acid/logical-backup:v1.10.1 registry.opensource.zalan.do/acid/pgbouncer:master-27
         )
+        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-beijing.aliyuncs.com
         for i in ${IMG[@]}; do
            docker pull $i
            Name=$(echo $i|awk -F'/' '{print $NF}')
