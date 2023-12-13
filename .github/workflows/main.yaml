@@ -23,15 +23,15 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         logout: false
         
-    - name: Use Skopeo Tools Sync Image to Docker Hub
+    - name: Sync Image to ACR
       run: |
         #!/usr/bin/env bash
-        IMG=`
+        IMG=‘
         registry.opensource.zalan.do/acid/postgres-operator:v1.10.1
         ghcr.io/zalando/spilo-15:3.0-p1
         registry.opensource.zalan.do/acid/logical-backup:v1.10.1
         registry.opensource.zalan.do/acid/pgbouncer:master-27
-        `
+        ’
         for i in ${IMG[@]}; do
            docker pull $i
            Name=$(echo $i|awk -F'/' '{print $NF}')
