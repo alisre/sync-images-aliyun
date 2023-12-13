@@ -21,7 +21,6 @@ jobs:
         registry: registry.cn-beijing.aliyuncs.com
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        logout: false
         
     - name: Sync Image to ACR
       run: |
