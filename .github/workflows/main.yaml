@@ -25,7 +25,7 @@ jobs:
     - name: Sync Image to ACR
       run: |
         #!/usr/bin/env bash
-        IMG=( registry.opensource.zalan.do/acid/postgres-operator:v1.10.1 ghcr.io/zalando/spilo-15:3.0-p1 registry.opensource.zalan.do/acid/logical-backup:v1.10.1 registry.opensource.zalan.do/acid/pgbouncer:master-27
+        IMG=( bitnami/kafka:3.6.1-debian-11-r0
         )
         for i in ${IMG[@]}; do
            docker pull $i
